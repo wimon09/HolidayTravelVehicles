@@ -13,7 +13,7 @@ public class Invoice {
 	private Salesperson salesperson; // One salesperson per invoice
 	private Vehicle vehicle; // One vehicle per invoice
 	private TradeInVehicle tradeInVehicle; // Optional trade-in vehicle
-	private ArrayList<Option> options = new ArrayList<>(); // Many options possible
+	
 
 	public Invoice(String invoiceID, Date date, String signature, double tradeInAllowance, double finalPrice,
 			double tax, double licenseFee, customer customer, Salesperson salesperson, Vehicle vehicle) {
@@ -79,17 +79,9 @@ public class Invoice {
 		return tradeInVehicle;
 	}
 
-	public List<Option> getOptions() {
-		return options;
-	}
-
 	public void setTradeInVehicle(TradeInVehicle tradeInVehicle) {
 		this.tradeInVehicle = tradeInVehicle;
 		tradeInVehicle.addInvoice(this);
 	}
 
-	public void addOption(Option option) {
-		options.add(option);
-		option.addInvoice(this);
-	}
 }
